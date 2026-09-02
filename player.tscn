@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dt7yqjfr73k6e" path="res://assets/ROBO_WITHOUT HANDS.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://bb8xrjkylu5kg" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://c1hivqm35bekh" path="res://assets/dungeon Crawlermkup.png" id="3_i3pqv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
 atlas = ExtResource("1_4flbx")
@@ -136,6 +137,21 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e6q6n"]
 size = Vector2(9, 15)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_q13i1"]
+atlas = ExtResource("3_i3pqv")
+region = Rect2(160, 270, 16, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8fc75"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q13i1")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 0.0
+}]
+
 [node name="player" type="CharacterBody2D" unique_id=709628128]
 script = ExtResource("1_onrkg")
 
@@ -143,9 +159,17 @@ script = ExtResource("1_onrkg")
 unique_name_in_owner = true
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_e6q6n")
-animation = &"roll"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=428515518]
 position = Vector2(0.5, -8.5)
 shape = SubResource("RectangleShape2D_e6q6n")
+
+[node name="Hand" type="Node2D" parent="." unique_id=288895268]
+position = Vector2(11, -7)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Hand" unique_id=885671939]
+texture_filter = 1
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_8fc75")
