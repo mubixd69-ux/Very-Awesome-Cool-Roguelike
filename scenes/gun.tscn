@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://d2kyxkgb8822b"]
+
+[ext_resource type="Script" uid="uid://udqucvaowdg6" path="res://scripts/gun.gd" id="1_og67c"]
+[ext_resource type="Texture2D" uid="uid://c1hivqm35bekh" path="res://assets/dungeon Crawlermkup.png" id="2_gp1hk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qd4js"]
+atlas = ExtResource("2_gp1hk")
+region = Rect2(160, 270, 16, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e6q6n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qd4js")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="gun" type="Node2D" unique_id=975364268]
+script = ExtResource("1_og67c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=919611337]
+position = Vector2(4, -1)
+sprite_frames = SubResource("SpriteFrames_e6q6n")
