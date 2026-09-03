@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="EnemyType" format=3 uid="uid://c5kj4lvcdcxjx"]
+
+[ext_resource type="PackedScene" uid="uid://dlsq1wxr4yw1s" path="res://Enemies/Zombie.tscn" id="1_kgb8j"]
+[ext_resource type="Script" uid="uid://dtya206unqv0c" path="res://EnemyType.gd" id="2_fjcpq"]
+[ext_resource type="Texture2D" uid="uid://c1hivqm35bekh" path="res://assets/dungeon Crawlermkup.png" id="3_uxgcy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjcpq"]
+atlas = ExtResource("3_uxgcy")
+region = Rect2(0, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxgcy"]
+atlas = ExtResource("3_uxgcy")
+region = Rect2(16, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70d00"]
+atlas = ExtResource("3_uxgcy")
+region = Rect2(32, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_guku5"]
+atlas = ExtResource("3_uxgcy")
+region = Rect2(48, 80, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tipki"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjcpq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxgcy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70d00")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_guku5")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[resource]
+script = ExtResource("2_fjcpq")
+enemy_name = "Zombie"
+enemy_scene = ExtResource("1_kgb8j")
+sprite_frames = SubResource("SpriteFrames_tipki")
+metadata/_custom_type_script = "uid://dtya206unqv0c"
