@@ -20,7 +20,11 @@ animations = [{
 
 [node name="gun" type="Node2D" unique_id=975364268]
 script = ExtResource("1_og67c")
+metadata/_edit_horizontal_guides_ = [-8.0]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=919611337]
-position = Vector2(4, -1)
+position = Vector2(5, -3)
 sprite_frames = SubResource("SpriteFrames_e6q6n")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=716981741]
+position = Vector2(13.435478, -2.4280593)
