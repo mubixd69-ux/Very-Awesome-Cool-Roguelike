@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://dgdyo4x1auxx6"]
 
 [ext_resource type="PackedScene" uid="uid://b4vl772lotdjj" path="res://scenes/player.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://crgckljy6sxnh" path="res://scenes/spawner.tscn" id="1_tipki"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_sugp2"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_jyhfs"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://b4knj4t0xeeab" path="res://scripts/camera_2d.gd" id="4_tbgi4"]
 [ext_resource type="Script" uid="uid://bhd4nuiu23e7l" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_noise_emitter_2d.gd" id="6_o6xl0"]
 [ext_resource type="Script" uid="uid://dimvdouy8g0sv" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_2d.gd" id="7_tipki"]
+[ext_resource type="Script" uid="uid://c1o8je4eogxld" path="res://spawnerScript.gd" id="8_tipki"]
+[ext_resource type="Script" uid="uid://bdkyhtgsqrty2" path="res://waves.gd" id="9_85g3d"]
 
 [sub_resource type="Resource" id="Resource_tbgi4"]
 script = ExtResource("3_jyhfs")
@@ -18,10 +19,13 @@ amplitude = 20.0
 frequency = 0.252
 metadata/_custom_type_script = "uid://dimvdouy8g0sv"
 
-[node name="main" type="Node2D" unique_id=1898232903]
+[sub_resource type="Resource" id="Resource_tipki"]
+script = ExtResource("9_85g3d")
+numOfGroundy = 10
+groundySpawnTime = 1.0
+metadata/_custom_type_script = "uid://bdkyhtgsqrty2"
 
-[node name="spawner" parent="." unique_id=679696466 node_paths=PackedStringArray("player") instance=ExtResource("1_tipki")]
-player = NodePath("../player")
+[node name="main" type="Node2D" unique_id=1898232903]
 
 [node name="PhantomCamera2D" type="Node2D" parent="." unique_id=2106401298 node_paths=PackedStringArray("follow_target")]
 unique_name_in_owner = true
@@ -45,7 +49,6 @@ movement_speed = 125.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1458018890]
 physics_interpolation_mode = 1
-top_level = true
 position = Vector2(163.58, 90.165)
 script = ExtResource("4_tbgi4")
 
@@ -59,3 +62,7 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 script = ExtResource("6_o6xl0")
 noise = SubResource("Resource_e6q6n")
 metadata/_custom_type_script = "uid://bhd4nuiu23e7l"
+
+[node name="Spawner" type="Node" parent="." unique_id=945596631]
+script = ExtResource("8_tipki")
+waves = Array[ExtResource("9_85g3d")]([SubResource("Resource_tipki")])
