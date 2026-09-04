@@ -3,11 +3,6 @@ extends CharacterBody2D
 @export var max_health: int = 100
 var current_health: int
 
-@onready var phantom_camera_noise_emitter: PhantomCameraNoiseEmitter2D = $"../PhantomCameraNoiseEmitter2D"
-#Screen Shake
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("fire"):
-		phantom_camera_noise_emitter.emit()
 
 @export var movement_speed : float = 500
 var character_direction : Vector2
