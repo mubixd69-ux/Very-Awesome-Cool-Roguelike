@@ -42,6 +42,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8fc75"]
 size = Vector2(10, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6q6n"]
+size = Vector2(10, 16)
+
 [node name="Enemy" type="CharacterBody2D" unique_id=2115471426]
 collision_layer = 2
 collision_mask = 2
@@ -55,3 +58,10 @@ autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1033698389]
 shape = SubResource("RectangleShape2D_8fc75")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=347197225]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=882585011]
+shape = SubResource("RectangleShape2D_e6q6n")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
