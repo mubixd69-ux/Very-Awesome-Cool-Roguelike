@@ -3,31 +3,37 @@
 [ext_resource type="Texture2D" uid="uid://c1hivqm35bekh" path="res://assets/dungeon Crawlermkup.png" id="1_mkf8s"]
 [ext_resource type="Script" uid="uid://dipnsom3bo18l" path="res://scripts/bullet.gd" id="1_y25gk"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l5glv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_y25gk"]
 atlas = ExtResource("1_mkf8s")
-region = Rect2(80, 306, 16, 17)
+region = Rect2(80, 306, 16, 18)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_e6q6n"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_8fc75"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_l5glv")
+"texture": SubResource("AtlasTexture_y25gk")
 }],
 "loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
 
-[node name="bullet" type="Node2D" unique_id=870069772]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6q6n"]
+size = Vector2(5.9912634, 2.989506)
+
+[node name="bullet" type="Area2D" unique_id=1219626197]
 scale = Vector2(2, 2)
 script = ExtResource("1_y25gk")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=597364127]
-position = Vector2(0, 1)
-sprite_frames = SubResource("SpriteFrames_e6q6n")
-frame_progress = 0.85098153
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1446258855]
+position = Vector2(0.043056488, 1.3347592)
+sprite_frames = SubResource("SpriteFrames_8fc75")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1555727591]
-rect = Rect2(-35.5, -31.5, 71, 63)
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1697541926]
+position = Vector2(0.043056488, 1.3347592)
 
-[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=212272781]
+position = Vector2(0.028979897, -0.1526469)
+shape = SubResource("RectangleShape2D_e6q6n")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
