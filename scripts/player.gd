@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+@export var max_health: int = 100
+var current_health: int
+
 @onready var phantom_camera_noise_emitter: PhantomCameraNoiseEmitter2D = $"../PhantomCameraNoiseEmitter2D"
 #Screen Shake
 func _unhandled_input(event: InputEvent) -> void:
@@ -34,4 +37,17 @@ func _physics_process(delta: float) -> void:
 		if %AnimatedSprite2D.animation != "idle": %AnimatedSprite2D.animation = "idle"
 	
 	move_and_slide()
+	
+	# Player Health
+func _ready() -> void:
+		current_health = max_health
+
+func take_damage(amount: int) -> void:
+	current_health -= amount
+	
+	if current_health <= 0:
+		die()
+		
+func die() -> void:
+		print("player die")
 	
