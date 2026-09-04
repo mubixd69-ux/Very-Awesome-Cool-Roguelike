@@ -1,29 +1,27 @@
 [gd_scene format=3 uid="uid://dlsq1wxr4yw1s"]
 
+[ext_resource type="Script" uid="uid://uqvfxj5oqd0k" path="res://scripts/enemy.gd" id="1_6occn"]
 [ext_resource type="Texture2D" uid="uid://c1hivqm35bekh" path="res://assets/dungeon Crawlermkup.png" id="1_8thdp"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6occn"]
-atlas = ExtResource("1_8thdp")
-region = Rect2(0, 80, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eq8ey"]
 atlas = ExtResource("1_8thdp")
-region = Rect2(16, 80, 16, 16)
+region = Rect2(0, 80, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_matev"]
 atlas = ExtResource("1_8thdp")
-region = Rect2(32, 80, 16, 16)
+region = Rect2(16, 80, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_asmuy"]
 atlas = ExtResource("1_8thdp")
+region = Rect2(32, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4t3d"]
+atlas = ExtResource("1_8thdp")
 region = Rect2(48, 80, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_e6q6n"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_md0e3"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6occn")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_eq8ey")
 }, {
@@ -32,20 +30,27 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_asmuy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4t3d")
 }],
 "loop": 1,
 "name": &"default",
-"speed": 10.0
+"speed": 12.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8fc75"]
 size = Vector2(10, 16)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1563606215]
+[node name="Enemy" type="CharacterBody2D" unique_id=2115471426 node_paths=PackedStringArray("player_referance")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_6occn")
+player_referance = NodePath(".")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=501696993]
-sprite_frames = SubResource("SpriteFrames_e6q6n")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=706377578]
+sprite_frames = SubResource("SpriteFrames_md0e3")
 autoplay = "default"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=545507915]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1033698389]
 shape = SubResource("RectangleShape2D_8fc75")
