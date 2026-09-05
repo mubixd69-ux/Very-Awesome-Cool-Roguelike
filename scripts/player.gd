@@ -54,5 +54,6 @@ func take_damage(amount: int) -> void:
 		die()
 		
 func die() -> void:
-		print("player die")
+	get_tree().change_scene_to_file("res://scenes/death_screen.tscn")
+		
 	

@@ -14,15 +14,16 @@
 
 [sub_resource type="Resource" id="Resource_jkv2x"]
 script = ExtResource("9_85g3d")
+numOfGroundy = 10
 groundySpawnTime = 1.0
-numOfSmoldy = 1
-smoldySpawnTime = 1.0
 metadata/_custom_type_script = "uid://bdkyhtgsqrty2"
 
 [sub_resource type="Resource" id="Resource_tefeu"]
 script = ExtResource("9_85g3d")
-numOfGroundy = 1
+numOfGroundy = 7
 groundySpawnTime = 1.0
+numOfSmoldy = 2
+smoldySpawnTime = 2.0
 numOfSpoidy = 1
 spoidySpawnTime = 3.0
 numOfWierdy = 1
@@ -33,10 +34,100 @@ metadata/_custom_type_script = "uid://bdkyhtgsqrty2"
 
 [sub_resource type="Resource" id="Resource_o6xl0"]
 script = ExtResource("9_85g3d")
+numOfSmoldy = 10
+smoldySpawnTime = 0.7
 metadata/_custom_type_script = "uid://bdkyhtgsqrty2"
 
 [sub_resource type="Resource" id="Resource_tipki"]
 script = ExtResource("9_85g3d")
+numOfGroundy = 3
+groundySpawnTime = 1.0
+numOfSmoldy = 2
+smoldySpawnTime = 1.0
+numOfSpoidy = 3
+spoidySpawnTime = 2.0
+metadata/_custom_type_script = "uid://bdkyhtgsqrty2"
+
+[sub_resource type="Resource" id="Resource_ya4ey"]
+script = ExtResource("9_85g3d")
+numOfGroundy = 5
+groundySpawnTime = 0.5
+numOfSmoldy = 3
+smoldySpawnTime = 1.0
+numOfSpoidy = 3
+spoidySpawnTime = 2.0
+numOfWierdy = 1
+wierdySpawnTime = 3.0
+metadata/_custom_type_script = "uid://bdkyhtgsqrty2"
+
+[sub_resource type="Resource" id="Resource_eb6dy"]
+script = ExtResource("9_85g3d")
+numOfSmoldy = 4
+smoldySpawnTime = 0.5
+numOfSpoidy = 8
+spoidySpawnTime = 1.0
+numOfWierdy = 4
+wierdySpawnTime = 2.0
+metadata/_custom_type_script = "uid://bdkyhtgsqrty2"
+
+[sub_resource type="Resource" id="Resource_trceg"]
+script = ExtResource("9_85g3d")
+numOfSmoldy = 4
+smoldySpawnTime = 2.0
+numOfZombie = 15
+zombieSpawnTime = 0.5
+metadata/_custom_type_script = "uid://bdkyhtgsqrty2"
+
+[sub_resource type="Resource" id="Resource_a8y0u"]
+script = ExtResource("9_85g3d")
+numOfGroundy = 5
+groundySpawnTime = 1.0
+numOfSmoldy = 5
+smoldySpawnTime = 2.0
+numOfSpoidy = 5
+spoidySpawnTime = 3.0
+numOfWierdy = 5
+wierdySpawnTime = 4.0
+numOfZombie = 5
+zombieSpawnTime = 2.0
+metadata/_custom_type_script = "uid://bdkyhtgsqrty2"
+
+[sub_resource type="Resource" id="Resource_jbj1t"]
+script = ExtResource("9_85g3d")
+numOfGroundy = 10
+groundySpawnTime = 0.5
+numOfSmoldy = 10
+smoldySpawnTime = 0.5
+numOfSpoidy = 5
+spoidySpawnTime = 1.0
+numOfWierdy = 5
+wierdySpawnTime = 2.0
+numOfZombie = 10
+zombieSpawnTime = 1.0
+metadata/_custom_type_script = "uid://bdkyhtgsqrty2"
+
+[sub_resource type="Resource" id="Resource_muem4"]
+script = ExtResource("9_85g3d")
+numOfSmoldy = 10
+smoldySpawnTime = 0.5
+numOfSpoidy = 10
+spoidySpawnTime = 1.0
+numOfWierdy = 5
+wierdySpawnTime = 1.0
+metadata/_custom_type_script = "uid://bdkyhtgsqrty2"
+
+[sub_resource type="Resource" id="Resource_dp3eg"]
+script = ExtResource("9_85g3d")
+numOfGroundy = 10
+groundySpawnTime = 1.0
+numOfSmoldy = 10
+smoldySpawnTime = 0.5
+numOfSpoidy = 10
+spoidySpawnTime = 1.0
+numOfWierdy = 10
+wierdySpawnTime = 2.0
+numOfZombie = 10
+zombieSpawnTime = 0.5
 metadata/_custom_type_script = "uid://bdkyhtgsqrty2"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_85g3d"]
@@ -261,7 +352,7 @@ script = ExtResource("2_tbgi4")
 
 [node name="Spawner" type="Node" parent="." unique_id=945596631]
 script = ExtResource("8_tipki")
-waves = Array[ExtResource("9_85g3d")]([SubResource("Resource_jkv2x"), SubResource("Resource_tefeu"), SubResource("Resource_o6xl0"), SubResource("Resource_tipki")])
+waves = Array[ExtResource("9_85g3d")]([SubResource("Resource_jkv2x"), SubResource("Resource_tefeu"), SubResource("Resource_o6xl0"), SubResource("Resource_tipki"), SubResource("Resource_ya4ey"), SubResource("Resource_eb6dy"), SubResource("Resource_trceg"), SubResource("Resource_a8y0u"), SubResource("Resource_jbj1t"), SubResource("Resource_muem4"), SubResource("Resource_dp3eg")])
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1240054753]
 tile_set = SubResource("TileSet_e6q6n")

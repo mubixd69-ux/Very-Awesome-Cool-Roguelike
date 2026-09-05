@@ -3,36 +3,33 @@
 [ext_resource type="PackedScene" uid="uid://xhj5xji0botb" path="res://Enemies/Groundy.tscn" id="1_lp6gp"]
 [ext_resource type="Texture2D" uid="uid://c1hivqm35bekh" path="res://assets/dungeon Crawlermkup.png" id="2_0356j"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0356j"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdrsr"]
 atlas = ExtResource("2_0356j")
 region = Rect2(400, 80, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hdrsr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wn5c"]
 atlas = ExtResource("2_0356j")
 region = Rect2(416, 80, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5wn5c"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7xs7"]
 atlas = ExtResource("2_0356j")
 region = Rect2(432, 80, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y7xs7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xoi0"]
 atlas = ExtResource("2_0356j")
 region = Rect2(448, 80, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1xoi0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_if6m2"]
 atlas = ExtResource("2_0356j")
 region = Rect2(400, 96, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_if6m2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jet41"]
 atlas = ExtResource("2_0356j")
 region = Rect2(416, 96, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_jet41"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_wbjqq"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0356j")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hdrsr")
 }, {
@@ -41,28 +38,30 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_y7xs7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xoi0")
 }],
 "loop": 1,
 "name": &"default",
-"speed": 10.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1xoi0")
+"texture": SubResource("AtlasTexture_if6m2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_if6m2")
+"texture": SubResource("AtlasTexture_jet41")
 }],
 "loop": 0,
 "name": &"hurt",
-"speed": 20.0
+"speed": 15.0
 }]
 
 [node name="Enemy" unique_id=2115471426 instance=ExtResource("1_lp6gp")]
-speed = 60.0
-max_health = 10
+speed = 65.0
+max_health = 100
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=706377578]
-sprite_frames = SubResource("SpriteFrames_jet41")
-animation = &"default"
+sprite_frames = SubResource("SpriteFrames_wbjqq")
 frame_progress = 0.0
