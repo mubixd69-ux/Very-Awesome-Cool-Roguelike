@@ -48,7 +48,6 @@ func die() -> void:
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.has_method("take_damage"):
 		body.take_damage(25)
-		$AudioStreamPlayer2D.play()
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite.animation == "hurt":
