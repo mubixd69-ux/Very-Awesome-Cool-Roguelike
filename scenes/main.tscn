@@ -9,9 +9,8 @@
 
 [sub_resource type="Resource" id="Resource_jkv2x"]
 script = ExtResource("9_85g3d")
-numOfGroundy = 3
 groundySpawnTime = 1.0
-numOfSmoldy = 3
+numOfSmoldy = 1
 smoldySpawnTime = 1.0
 metadata/_custom_type_script = "uid://bdkyhtgsqrty2"
 
@@ -19,8 +18,12 @@ metadata/_custom_type_script = "uid://bdkyhtgsqrty2"
 script = ExtResource("9_85g3d")
 numOfGroundy = 1
 groundySpawnTime = 1.0
-numOfSmoldy = 1
-smoldySpawnTime = 1.0
+numOfSpoidy = 1
+spoidySpawnTime = 3.0
+numOfWierdy = 1
+wierdySpawnTime = 1.0
+numOfZombie = 1
+zombieSpawnTime = 2.0
 metadata/_custom_type_script = "uid://bdkyhtgsqrty2"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_choun"]

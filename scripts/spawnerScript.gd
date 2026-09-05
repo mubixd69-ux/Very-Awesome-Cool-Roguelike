@@ -7,10 +7,19 @@ const groundy = preload("res://Enemies/Groundy.tscn")
 var groundyTimer = 0.0
 const smoldy = preload("res://Enemies/Smoldy.tscn")
 var smoldyTimer = 0.0
+const spoidy = preload("res://Enemies/Spoidy.tscn")
+var spoidyTimer = 0.0
+const wierdy = preload("res://Enemies/Wierdy.tscn")
+var wierdyTimer = 0.0
+const zombie = preload("res://Enemies/Zombie.tscn")
+var zombieTimer = 0.0
 
 # Runtime tracking variables (this fixes the error!)
 var groundy_to_spawn: int = 0
 var smoldy_to_spawn: int = 0
+var spoidy_to_spawn: int = 0
+var wierdy_to_spawn: int = 0
+var zombie_to_spawn: int = 0
 var enemies_alive: int = 0
 
 func _ready() -> void:
@@ -24,8 +33,15 @@ func load_wave(index: int) -> void:
 		
 		groundy_to_spawn = wave.numOfGroundy
 		smoldy_to_spawn = wave.numOfSmoldy
+		spoidy_to_spawn = wave.numOfSpoidy
+		wierdy_to_spawn = wave.numOfWierdy
+		zombie_to_spawn = wave.numOfZombie
 		groundyTimer = wave.groundySpawnTime
 		smoldyTimer = wave.smoldySpawnTime
+		spoidyTimer = wave.spoidySpawnTime
+		wierdyTimer = wave.wierdySpawnTime
+		zombieTimer = wave.zombieSpawnTime	
+		print(zombie_to_spawn)
 	else:
 		print("All waves completed! You win!")
 
@@ -52,9 +68,36 @@ func _process(delta: float) -> void:
 			smoldyTimer = wave.smoldySpawnTime
 			smoldy_to_spawn -= 1
 			spawn(smoldy)
+	
+	# --- SPAWN SPOIDY ---
+	if spoidy_to_spawn > 0:
+		if spoidyTimer > 0:
+			spoidyTimer -= delta
+		else:
+			spoidyTimer = wave.spoidySpawnTime
+			spoidy_to_spawn -= 1
+			spawn(spoidy)
+	
+	# --- SPAWN WIERDY ---
+	if wierdy_to_spawn > 0:
+		if wierdyTimer > 0:
+			wierdyTimer -= delta
+		else:
+			wierdyTimer = wave.wierdySpawnTime
+			wierdy_to_spawn -= 1
+			spawn(wierdy)
+			
+		# --- SPAWN ZOMBIE ---
+	if zombie_to_spawn > 0:
+		if zombieTimer > 0:
+			zombieTimer -= delta
+		else:
+			zombieTimer = wave.zombieSpawnTime
+			zombie_to_spawn -= 1
+			spawn(zombie)
 			
 	# --- CHECK IF WAVE IS CLEARED ---
-	if groundy_to_spawn == 0 and smoldy_to_spawn == 0 and enemies_alive <= 0:
+	if groundy_to_spawn == 0 and smoldy_to_spawn == 0 and spoidy_to_spawn == 0 and wierdy_to_spawn == 0 and zombie_to_spawn == 0 and enemies_alive <= 0:
 		current_wave_index += 1
 		load_wave(current_wave_index)
 
