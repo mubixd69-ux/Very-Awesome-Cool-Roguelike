@@ -4,6 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://dt7yqjfr73k6e" path="res://assets/ROBO_WITHOUT HANDS.png" id="2_dqkch"]
 [ext_resource type="PackedScene" uid="uid://d2kyxkgb8822b" path="res://scenes/gun.tscn" id="3_dqkch"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
+atlas = ExtResource("2_dqkch")
+region = Rect2(0, 140, 29, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
+atlas = ExtResource("2_dqkch")
+region = Rect2(29, 140, 29, 20)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
 atlas = ExtResource("2_dqkch")
 region = Rect2(0, 0, 32, 32)
@@ -70,6 +78,17 @@ region = Rect2(96, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e6q6n"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhqgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqkch")
+}],
+"loop": 1,
+"name": &"hurt",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_onrkg")
@@ -142,9 +161,9 @@ script = ExtResource("1_qhqgy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=358111002]
 unique_name_in_owner = true
-position = Vector2(0, -16)
+position = Vector2(1, -16)
 sprite_frames = SubResource("SpriteFrames_e6q6n")
-animation = &"idle"
+animation = &"run"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=428515518]
@@ -156,10 +175,3 @@ position = Vector2(11, -7)
 
 [node name="gun" parent="Hand" unique_id=975364268 instance=ExtResource("3_dqkch")]
 scale = Vector2(0.7, 0.7)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1815592611]
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=592432036]
-offset_right = 40.0
-offset_bottom = 40.0
-value = 100.0

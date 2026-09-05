@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b4vl772lotdjj" path="res://scenes/player.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://b3qxas8mayk0" path="res://scripts/camera.gd" id="2_tbgi4"]
+[ext_resource type="Script" uid="uid://8q7xgnvv6l1" path="res://scripts/progress_bar.gd" id="2_tefeu"]
 [ext_resource type="Script" uid="uid://c1o8je4eogxld" path="res://scripts/spawnerScript.gd" id="8_tipki"]
 [ext_resource type="Script" uid="uid://bdkyhtgsqrty2" path="res://scripts/waves.gd" id="9_85g3d"]
 [ext_resource type="Texture2D" uid="uid://gmpnrcl6yclh" path="res://assets/Sci-Fi-Dungeon.png" id="10_choun"]
@@ -3234,6 +3235,19 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_choun")
 
 [node name="main" type="Node2D" unique_id=1898232903]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1726918704]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=1323244900]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -162.0
+offset_bottom = 79.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 48
+value = 100.0
+script = ExtResource("2_tefeu")
 
 [node name="player" parent="." unique_id=709628128 instance=ExtResource("1_ig7tw")]
 position = Vector2(168, 108)

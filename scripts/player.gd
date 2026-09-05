@@ -3,7 +3,9 @@ extends CharacterBody2D
 @export var max_health: int = 100
 var current_health: int
 
-@onready var health_bar: TextureProgressBar = $CanvasLayer/TextureProgressBar
+signal healthChanged
+
+@onready var health_bar: TextureProgressBar = $canvaslayer/Healthbar
 
 @export var movement_speed : float = 500
 var character_direction : Vector2
@@ -44,10 +46,10 @@ func _ready() -> void:
 
 func take_damage(amount: int) -> void:
 	current_health -= amount
+	healthChanged.emit()
 	
 	if health_bar:
 		health_bar.value = current_health
-		
 	if current_health <= 0:
 		die()
 		
