@@ -1,25 +1,33 @@
 [gd_scene format=3 uid="uid://dlsq1wxr4yw1s"]
 
-[ext_resource type="Script" uid="uid://uqvfxj5oqd0k" path="res://scripts/enemy.gd" id="1_6occn"]
-[ext_resource type="Texture2D" uid="uid://c1hivqm35bekh" path="res://assets/dungeon Crawlermkup.png" id="1_8thdp"]
+[ext_resource type="PackedScene" uid="uid://xhj5xji0botb" path="res://Enemies/Groundy.tscn" id="1_6occn"]
+[ext_resource type="Texture2D" uid="uid://c1hivqm35bekh" path="res://assets/dungeon Crawlermkup.png" id="2_eq8ey"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eq8ey"]
-atlas = ExtResource("1_8thdp")
+atlas = ExtResource("2_eq8ey")
 region = Rect2(0, 80, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_matev"]
-atlas = ExtResource("1_8thdp")
+atlas = ExtResource("2_eq8ey")
 region = Rect2(16, 80, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_asmuy"]
-atlas = ExtResource("1_8thdp")
+atlas = ExtResource("2_eq8ey")
 region = Rect2(32, 80, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k4t3d"]
-atlas = ExtResource("1_8thdp")
+atlas = ExtResource("2_eq8ey")
 region = Rect2(48, 80, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_md0e3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vv27w"]
+atlas = ExtResource("2_eq8ey")
+region = Rect2(0, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6prr3"]
+atlas = ExtResource("2_eq8ey")
+region = Rect2(16, 96, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e0ogk"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -37,20 +45,23 @@ animations = [{
 "loop": 1,
 "name": &"default",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vv27w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6prr3")
+}],
+"loop": 0,
+"name": &"hurt",
+"speed": 20.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8fc75"]
-size = Vector2(10, 16)
+[node name="Enemy" unique_id=2115471426 instance=ExtResource("1_6occn")]
+max_health = 75
 
-[node name="Enemy" type="CharacterBody2D" unique_id=2115471426 node_paths=PackedStringArray("player_referance")]
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("1_6occn")
-player_referance = NodePath(".")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=706377578]
-sprite_frames = SubResource("SpriteFrames_md0e3")
-autoplay = "default"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1033698389]
-shape = SubResource("RectangleShape2D_8fc75")
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=706377578]
+sprite_frames = SubResource("SpriteFrames_e0ogk")
+animation = &"default"
+frame_progress = 0.0

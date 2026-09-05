@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://dohxhuirlds4t"]
+[gd_scene format=3 uid="uid://cvgkywhq512d2"]
 
-[ext_resource type="Script" uid="uid://64pi00p2xl0v" path="res://scripts/groundy.gd" id="1_uhug4"]
+[ext_resource type="PackedScene" uid="uid://xhj5xji0botb" path="res://Enemies/Groundy.tscn" id="1_uhug4"]
 [ext_resource type="Texture2D" uid="uid://c1hivqm35bekh" path="res://assets/dungeon Crawlermkup.png" id="1_v63oq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o4a21"]
@@ -19,7 +19,15 @@ region = Rect2(352, 80, 16, 16)
 atlas = ExtResource("1_v63oq")
 region = Rect2(368, 80, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_k7qu1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocjhc"]
+atlas = ExtResource("1_v63oq")
+region = Rect2(320, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdflj"]
+atlas = ExtResource("1_v63oq")
+region = Rect2(336, 96, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_saiu6"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -37,29 +45,35 @@ animations = [{
 "loop": 1,
 "name": &"default",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocjhc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdflj")
+}],
+"loop": 0,
+"name": &"hurt",
+"speed": 20.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6q6n"]
-size = Vector2(11, 13)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gg1ib"]
+size = Vector2(10, 16)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o4a21"]
-size = Vector2(11, 13)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqhoq"]
+size = Vector2(10, 16)
 
-[node name="Enemy" type="CharacterBody2D" unique_id=2115471426]
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("1_uhug4")
+[node name="Enemy" unique_id=2115471426 instance=ExtResource("1_uhug4")]
+speed = 115.0
+max_health = 25
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=706377578]
-sprite_frames = SubResource("SpriteFrames_k7qu1")
-autoplay = "default"
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=706377578]
+sprite_frames = SubResource("SpriteFrames_saiu6")
+frame_progress = 0.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1783726624]
-position = Vector2(-0.5, 0.5)
-shape = SubResource("RectangleShape2D_e6q6n")
+[node name="CollisionShape2D" parent="." index="1" unique_id=1033698389]
+shape = SubResource("RectangleShape2D_gg1ib")
 
-[node name="Hitbox" type="Area2D" parent="." unique_id=267460780]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=131353767]
-position = Vector2(-0.5, 0.5)
-shape = SubResource("RectangleShape2D_o4a21")
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(347197225) index="0" unique_id=882585011]
+shape = SubResource("RectangleShape2D_hqhoq")
