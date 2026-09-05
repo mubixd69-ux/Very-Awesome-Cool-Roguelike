@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var max_health: int = 100
-var current_health: int
+var current_health: int = 100
 
 signal healthChanged
 
