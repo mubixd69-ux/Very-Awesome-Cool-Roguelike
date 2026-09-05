@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://udqucvaowdg6" path="res://scripts/gun.gd" id="1_og67c"]
 [ext_resource type="Texture2D" uid="uid://c1hivqm35bekh" path="res://assets/dungeon Crawlermkup.png" id="2_gp1hk"]
+[ext_resource type="AudioStream" uid="uid://csdsvg0nh35id" path="res://sounds/blaster_repeater.ogg" id="3_gp1hk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qd4js"]
 atlas = ExtResource("2_gp1hk")
@@ -28,3 +29,6 @@ sprite_frames = SubResource("SpriteFrames_e6q6n")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=716981741]
 position = Vector2(13.435478, -2.4280593)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=157105440]
+stream = ExtResource("3_gp1hk")

@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c1hivqm35bekh" path="res://assets/dungeon Crawlermkup.png" id="1_mkf8s"]
 [ext_resource type="Script" uid="uid://dipnsom3bo18l" path="res://scripts/bullet.gd" id="1_y25gk"]
+[ext_resource type="AudioStream" uid="uid://cgnbyrnxj12ed" path="res://sounds/enemy_hurt.ogg" id="3_l5glv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y25gk"]
 atlas = ExtResource("1_mkf8s")
@@ -35,5 +36,8 @@ position = Vector2(0.043056488, 1.3347592)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=212272781]
 position = Vector2(0.028979897, -0.1526469)
 shape = SubResource("RectangleShape2D_e6q6n")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=543280262]
+stream = ExtResource("3_l5glv")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
