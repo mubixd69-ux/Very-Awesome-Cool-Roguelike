@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dohxhuirlds4t"]
 
-[ext_resource type="Script" uid="uid://uqvfxj5oqd0k" path="res://scripts/enemy.gd" id="1_uhug4"]
+[ext_resource type="Script" uid="uid://64pi00p2xl0v" path="res://scripts/groundy.gd" id="1_uhug4"]
 [ext_resource type="Texture2D" uid="uid://c1hivqm35bekh" path="res://assets/dungeon Crawlermkup.png" id="1_v63oq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o4a21"]
@@ -42,11 +42,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e6q6n"]
 size = Vector2(11, 13)
 
-[node name="Enemy" type="CharacterBody2D" unique_id=2115471426 node_paths=PackedStringArray("player_referance")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o4a21"]
+size = Vector2(11, 13)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=2115471426]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_uhug4")
-player_referance = NodePath(".")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=706377578]
 sprite_frames = SubResource("SpriteFrames_k7qu1")
@@ -55,3 +57,9 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1783726624]
 position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_e6q6n")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=267460780]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=131353767]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_o4a21")
