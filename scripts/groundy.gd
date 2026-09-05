@@ -1,10 +1,11 @@
 extends CharacterBody2D
 
+# 1. Declare the signal at the top
+signal enemy_died
+
 @export var speed: float = 150.0
 @export var max_health: int = 50
-
 var current_health: int
-
 var player: Node2D = null
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -29,18 +30,19 @@ func _physics_process(_delta: float) -> void:
 	
 	if animated_sprite.animation != "hurt":
 		animated_sprite.play("default")
-	
-func _process(delta: float) -> void:
-	if current_health <= 0 and animated_sprite.animation == "default":
-		die()
-	
+
 func take_damage(amount: int) -> void:
 	animated_sprite.play("hurt")
 	current_health -= amount
-	
+	if current_health <= 0:
+		die()
 		
 func die() -> void:
 	animated_sprite.play("hurt") 
+	
+	# 2. Emit the signal when dying! (No spawner reference needed)
+	emit_signal("enemy_died")
+	
 	queue_free()
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
@@ -48,5 +50,7 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 		body.take_damage(25)
 
 func _on_animated_sprite_2d_animation_finished() -> void:
-		if animated_sprite.animation == "hurt":
-			animated_sprite.play("default")
+	if animated_sprite.animation == "hurt":
+		animated_sprite.play("default")
+		if current_health <= 0:
+			die()

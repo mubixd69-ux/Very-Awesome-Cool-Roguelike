@@ -7,10 +7,20 @@
 [ext_resource type="Script" uid="uid://bdkyhtgsqrty2" path="res://scripts/waves.gd" id="9_85g3d"]
 [ext_resource type="Texture2D" uid="uid://gmpnrcl6yclh" path="res://assets/Sci-Fi-Dungeon.png" id="10_choun"]
 
-[sub_resource type="Resource" id="Resource_tipki"]
+[sub_resource type="Resource" id="Resource_jkv2x"]
 script = ExtResource("9_85g3d")
-numOfGroundy = 10
+numOfGroundy = 3
 groundySpawnTime = 1.0
+numOfSmoldy = 3
+smoldySpawnTime = 1.0
+metadata/_custom_type_script = "uid://bdkyhtgsqrty2"
+
+[sub_resource type="Resource" id="Resource_tefeu"]
+script = ExtResource("9_85g3d")
+numOfGroundy = 1
+groundySpawnTime = 1.0
+numOfSmoldy = 1
+smoldySpawnTime = 1.0
 metadata/_custom_type_script = "uid://bdkyhtgsqrty2"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_choun"]
@@ -3262,7 +3272,7 @@ script = ExtResource("2_tbgi4")
 
 [node name="Spawner" type="Node" parent="." unique_id=945596631]
 script = ExtResource("8_tipki")
-waves = Array[ExtResource("9_85g3d")]([SubResource("Resource_tipki")])
+waves = Array[ExtResource("9_85g3d")]([SubResource("Resource_jkv2x"), SubResource("Resource_tefeu")])
 
 [node name="TileMap" type="TileMap" parent="." unique_id=689188987]
 z_index = -1
